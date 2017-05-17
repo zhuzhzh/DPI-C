@@ -1,16 +1,16 @@
-#需求
+# 需求
 随着时代的发展，现在的芯片规模越来越大，哪怕模块级的验证环境也需要相当长的build时间，各种仿真工具也在改进编译和运行性能，还发明了增量编译。但无论如何turnaround的时间还是比较长，而且方法越复杂越容易出错。而DPI-C则比较简单，能够解决某些场景下的问题。
 
-#适用范围
+# 适用范围
 DPI-C比较适用于SV和外部语言间的“简单数据“交互
 
-#简介
+# 简介
 DPI全称Direct programming interface. SV和外部语言对彼此是透明的。理论上DPI可以支持很多语言，但目前SV只支持C
 DPI遵循black-box原则。描述和实现隔离。带来的好处就是在进行sv编译时我们只需要定义好*描述*, 而实现可以”延迟决定“。
 我把使用DPI的进行灵活环境搭建的方法学称为面向接口编程。
 SV和C通过function这个封装单元来交互。这个function可以定义在SV或C里。
 
-#tasks/functions
+# tasks/functions
 functions在外部实现，被SV调用，这种functions叫**imported functions**.
 functions在SV实现，被外部调用， 这种functions叫**expored functions**
 DPI允许通过function的参数（arguments）和返回值(result)来在两个域间传递**SV data**
@@ -27,7 +27,7 @@ import声明可以写在任何SV subrountine允许的地方。同一个外部sub
 imported subroutine可以有0个可多个 input, output, inout 参数。
 imported tasks只能返回void value; imported function可以返回值或void value.
 
-#Data types
+# Data types
 SV Data types必须是能够跨越SV和外部语言的类型, 称为富类型：
 * void, byte, shortint, int, longint, real, shortreal, chandle, string
 * scalar value of bit and logic
