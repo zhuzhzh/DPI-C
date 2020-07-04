@@ -1,4 +1,4 @@
-# DPI-C
+# SystemVerilog DPI-C
 
 translate the dpic part of IEEE std 1800-2017 (System Verilog)
 
